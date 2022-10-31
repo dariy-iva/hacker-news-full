@@ -22,5 +22,5 @@ app.use(errorLogger);
 app.use(centralErrorHandler);
 
 app.listen(PORT, () => {
-  console.log('Server started');
+  console.log(`Server started on port: ${PORT}`);
 });
