@@ -1,0 +1,14 @@
+.news__list {
+  margin: 0;
+  display: grid;
+  grid-row-gap: 7px;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.news__list .news__item::marker {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: var(--black);
+}
