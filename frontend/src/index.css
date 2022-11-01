@@ -6,6 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  --black: #000;
+  --white: #fff;
+  --gray: #828282;
+  --color-bcg-gray: rgb(246, 246, 239);
+  --color-bcg-orange: rgb(255, 102, 0);
+  background-color: var(--color-bcg-gray);
 }
 
 .page {
@@ -24,12 +30,6 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  --black: #000;
-  --white: #fff;
-  --gray: #828282;
-  --color-bcg-gray: rgb(246, 246, 239);
-  --color-bcg-orange: rgb(255, 102, 0);
-  background-color: var(--color-bcg-gray);
 }
 
 .link-hover {
