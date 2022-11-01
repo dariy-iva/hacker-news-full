@@ -1,12 +1,13 @@
 import React from "react";
 import "./MainPage.css";
 import NewsList from "../../NewsList/NewsList";
+import RefreshButton from "../../RefreshButton/RefreshButton";
 import {connect} from "react-redux";
 import {clearNews, getNewsList} from "../../../redux/slices/newsSlice";
 
 function MainPage({ news, clearNews, getNewsList }) {
 
-  function refreshNews() {
+  function refreshNewsList() {
     clearNews();
     getNewsList();
   }
@@ -15,7 +16,7 @@ function MainPage({ news, clearNews, getNewsList }) {
     getNewsList();
 
     const refreshInterval = setInterval(() => {
-      refreshNews();
+      refreshNewsList();
     }, 60000);
 
     return () => {
@@ -23,10 +24,10 @@ function MainPage({ news, clearNews, getNewsList }) {
     };
   }, []);
 
-
   return (
     <section className="news">
       <NewsList news={news} />
+      <RefreshButton onClick={refreshNewsList} content="news" isLoad={news.length}/>
     </section>
   );
 }
