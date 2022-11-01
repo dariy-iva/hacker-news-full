@@ -1,0 +1,13 @@
+@font-face {
+	font-family: "Verdana";
+	font-weight: 400;
+	font-style: normal;
+	src: url("Verdana.woff") format("woff"), url("Verdana.ttf") format("ttf");
+}
+
+@font-face {
+	font-family: "Verdana";
+	font-weight: 700;
+	font-style: normal;
+	src: url("Verdana-Bold.woff") format("woff"), url("Verdana-Bold.ttf") format("ttf");
+}
