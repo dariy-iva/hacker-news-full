@@ -7,5 +7,5 @@ function verifyResolve(res) {
 module.exports.getNewsIdList = () => fetch('https://hacker-news.firebaseio.com/v0/newstories.json')
   .then(verifyResolve);
 
-module.exports.getNewItemById = (id) => fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+module.exports.getItemById = (id) => fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
   .then(verifyResolve);

@@ -1,11 +1,11 @@
-const { getNewsIdList, getNewItemById } = require('../utils/api');
+const { getNewsIdList, getItemById } = require('../utils/api');
 
 async function getNewsItemsList() {
   const newsItemsList = [];
 
   try {
     const newsIdList = await getNewsIdList();
-    const promises = newsIdList.map((id) => getNewItemById(id)
+    const promises = newsIdList.map((id) => getItemById(id)
       .then((item) => newsItemsList.push(item))
       .catch((err) => Promise.reject(err)));
 
