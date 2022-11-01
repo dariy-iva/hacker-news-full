@@ -2,6 +2,7 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
+const cors = require('./middlewares/cors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const centralErrorHandler = require('./middlewares/centralErrorHandler');
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
+app.use(cors);
 
 app.use('/', router);
 

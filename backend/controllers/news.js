@@ -5,7 +5,7 @@ async function getNewsItemsList() {
 
   try {
     const newsIdList = await getNewsIdList();
-    const promises = newsIdList.map((id) => getItemById(id)
+    const promises = newsIdList.slice(0, 100).map((id) => getItemById(id)
       .then((item) => newsItemsList.push(item))
       .catch((err) => Promise.reject(err)));
 
