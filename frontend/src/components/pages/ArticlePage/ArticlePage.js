@@ -2,12 +2,14 @@ import React from "react";
 import "./ArticlePage.css";
 import Article from "../../Article/Article";
 import CommentsList from "../../CommentsList/CommentsList";
-import RefreshButton from "../../RefreshButton/RefreshButton";
+import BackButton from "../../Buttons/BackButton/BackButton";
+import RefreshButton from "../../Buttons/RefreshButton/RefreshButton";
 import {connect} from "react-redux";
 import {setCurrentNew} from "../../../redux/slices/newsSlice";
 import {getCommentsList, clearComments} from "../../../redux/slices/commentsSlice";
 
 function ArticlePage({currentNew, comments, getCommentsList, clearComments}) {
+  const commentsIsLoad = currentNew.kids ? comments.length : true;
 
   function refreshCommentsList() {
     clearComments();
@@ -37,10 +39,11 @@ function ArticlePage({currentNew, comments, getCommentsList, clearComments}) {
           parent={currentNew}
           onChildCommentsClick={''}
         />
+      <BackButton/>
       <RefreshButton
         onClick={refreshCommentsList}
         content="comments"
-        isLoad={comments.length}
+        isLoad={commentsIsLoad}
       />
     </section>
   );

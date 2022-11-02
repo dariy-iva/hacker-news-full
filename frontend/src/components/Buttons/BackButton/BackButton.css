@@ -1,0 +1,16 @@
+.back-button {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  padding: 0;
+  height: 30px;
+  width: 30px;
+  background: url("../../../images/arrow-back.svg") center / contain no-repeat;
+  border: none;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.back-button:hover {
+  transform: scale(1.2);
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./MainPage.css";
 import NewsList from "../../NewsList/NewsList";
-import RefreshButton from "../../RefreshButton/RefreshButton";
+import RefreshButton from "../../Buttons/RefreshButton/RefreshButton";
 import {connect} from "react-redux";
 import {clearNews, getNewsList} from "../../../redux/slices/newsSlice";
 

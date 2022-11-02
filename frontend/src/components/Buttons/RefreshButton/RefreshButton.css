@@ -1,0 +1,23 @@
+.refresh-button {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: url("../../../images/refresh.svg") center / contain no-repeat;
+  animation: loading 2s linear infinite;
+  animation-play-state: paused;
+  cursor: pointer;
+  transition: scale .3s;
+}
+
+.refresh-button:hover {
+  scale: 1.2;
+}
+
+.refresh-button_loading {
+  animation-play-state: running;
+}

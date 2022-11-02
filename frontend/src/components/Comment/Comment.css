@@ -6,7 +6,6 @@
   font-weight: normal;
   color: var(--black);
   flex-grow: 1;
-  max-width: 50%;
 }
 
 .comment__info {
@@ -47,8 +46,8 @@
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 0;
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
   margin-right: 5px;
 }
 
@@ -59,7 +58,7 @@
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-top: 0;
-  height: 0px;
-  width: 0px;
+  height: 0;
+  width: 0;
   margin-right: 5px;
 }
