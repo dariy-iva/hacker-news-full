@@ -16,16 +16,19 @@ export const commentsSlice = createSlice({
   name: "comments",
   initialState,
   reducers: {
+    clearCommentById(state, action) {
+      state.comments = state.comments.filter(comment => comment.id !== action.payload);
+    },
     clearComments(state) {
       state.comments = [];
     },
   },
   extraReducers: {
     [getCommentsList.fulfilled]: (state, action) => {
-      state.comments = [...action.payload];
+      state.comments = [...state.comments, ...action.payload];
     },
   },
 });
 
-export const {clearComments} = commentsSlice.actions;
+export const {clearComments, clearCommentById} = commentsSlice.actions;
 export default commentsSlice.reducer;

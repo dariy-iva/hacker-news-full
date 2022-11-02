@@ -21,6 +21,7 @@ function MainPage({ news, clearNews, getNewsList }) {
 
     return () => {
       clearInterval(refreshInterval);
+      clearNews();
     };
   }, []);
 
