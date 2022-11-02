@@ -10,10 +10,6 @@ import {setCurrentNew} from "../../redux/slices/newsSlice";
 function Article({article, isMainPage, setCurrentNew}) {
   const {id, title, text, url, score, by, time, kids} = article;
 
-  const articleText = text
-    ? parse(text)
-    : "Follow the link in the title to read the full text";
-
   const commentsNum = kids ? kids.length : 0;
   const commentsText = commentsNum === 1 ? "comment" : "comments";
   const commentsElementText = (commentsNum || "no") + " " + commentsText;
@@ -26,19 +22,22 @@ function Article({article, isMainPage, setCurrentNew}) {
     <article className="article">
       {isMainPage ? (
         <Link
-          className="article__link link-hover"
+          className="article__title article__link"
           to={`${pathConfig.article}/${id}`}
           onClick={handleArticleClick}
         >
           {title || ""}
         </Link>
       ) : (
-        <a className="article__link link-hover" href={url} target="blank">
+        <h2 className="article__title">
           {title || ""}
-        </a>
+          {url && (
+            <a href={url} target="blank" className="article__link">&nbsp;(follow the link&nbsp;&rarr;)</a>
+          )}
+        </h2>
       )}
 
-      {!isMainPage && <div className="article__text">{articleText}</div>}
+      {!isMainPage && text && <div className="article__text">{parse(text)}</div>}
       <p className="article__info">
         {isMainPage && (
           <span className="article__caption">
