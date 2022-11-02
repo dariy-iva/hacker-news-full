@@ -1,25 +1,25 @@
 import React from "react";
-import {connect} from "react-redux";
-import {getNewsList, clearNews} from "../../redux/slices/newsSlice";
+import {Switch, Route} from "react-router-dom";
 
 import './App.css';
 import Header from "../Header/Header";
 import MainPage from "../pages/MainPage/MainPage";
+import ArticlePage from "../pages/ArticlePage/ArticlePage";
+import {pathConfig} from "../../utils/pathConfig";
 
-function App() {
-
+export default function App() {
 
   return (
     <>
       <Header/>
-      <MainPage/>
+      <Switch>
+        <Route exact path={pathConfig.main}>
+          <MainPage/>
+        </Route>
+        <Route path={pathConfig.article}>
+          <ArticlePage/>
+        </Route>
+      </Switch>
     </>
   );
 }
-
-export default connect(
-  (state) => ({
-    news: state.news.news,
-  }),
-  {getNewsList, clearNews}
-)(App);
