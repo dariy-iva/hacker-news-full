@@ -68,3 +68,14 @@
   clip-path: inset(0 3ch 0 0);
   animation: pending 1s infinite;
 }
+
+@media (max-width: 767px) {
+  .comment__info {
+    flex-direction: column;
+  }
+
+  .comment__caption_content_comments {
+    border-left: none;
+    padding-left: 0;
+  }
+}

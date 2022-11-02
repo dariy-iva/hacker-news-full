@@ -54,3 +54,14 @@
   padding: 0 0 0 5px;
   border-left: 1px solid var(--gray);
 }
+
+@media (max-width: 767px) {
+  .article__info {
+    flex-direction: column;
+  }
+
+  .article__caption_content_comments {
+    border-left: none;
+    padding-left: 0;
+  }
+}

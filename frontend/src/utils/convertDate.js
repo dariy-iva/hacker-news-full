@@ -1,10 +1,3 @@
-function convertTime(number) {
-  if (number < 10) {
-    return `0${number}`;
-  }
-  return number;
-}
-
 export function convertDate(unixTime) {
   const date = new Date(unixTime * 1000);
 

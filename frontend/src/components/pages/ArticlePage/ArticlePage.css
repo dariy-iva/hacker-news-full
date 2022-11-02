@@ -7,3 +7,9 @@
   box-sizing: border-box;
   position: relative;
 }
+
+@media (max-width: 767px) {
+  .article-section {
+    padding-left: 10px;
+  }
+}

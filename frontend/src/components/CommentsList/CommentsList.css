@@ -6,3 +6,9 @@
   grid-row-gap: 7px;
   box-sizing: border-box;
 }
+
+@media (max-width: 767px) {
+  .comments {
+    padding-left: 10px;
+  }
+}

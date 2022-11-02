@@ -3,6 +3,7 @@
 	font-weight: 400;
 	font-style: normal;
 	src: url("Verdana.woff") format("woff"), url("Verdana.ttf") format("ttf");
+	font-display: swap;
 }
 
 @font-face {
@@ -10,4 +11,5 @@
 	font-weight: 700;
 	font-style: normal;
 	src: url("Verdana-Bold.woff") format("woff"), url("Verdana-Bold.ttf") format("ttf");
+	font-display: swap;
 }

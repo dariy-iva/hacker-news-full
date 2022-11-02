@@ -5,7 +5,7 @@ import RefreshButton from "../../Buttons/RefreshButton/RefreshButton";
 import {connect} from "react-redux";
 import {clearNews, getNewsList} from "../../../redux/slices/newsSlice";
 
-function MainPage({ news, clearNews, getNewsList }) {
+function MainPage({news, clearNews, getNewsList}) {
   const [newsIsLoad, setNewsIsLoad] = React.useState(false)
 
   function refreshNewsList() {
@@ -31,7 +31,7 @@ function MainPage({ news, clearNews, getNewsList }) {
 
   return (
     <section className="news">
-      <NewsList news={news} />
+      <NewsList news={news}/>
       <RefreshButton onClick={refreshNewsList} content="news" isLoad={newsIsLoad}/>
     </section>
   );
