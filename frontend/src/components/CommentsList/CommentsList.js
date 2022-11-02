@@ -13,7 +13,7 @@ function CommentsList({parent, comments, clearCommentById}) {
 
     comments.forEach(comment => {
       if (parent.kids.includes(comment.id)) {
-        newCommentsList.push(comment)
+        newCommentsList.push(comment);
       }
     });
 
@@ -25,7 +25,7 @@ function CommentsList({parent, comments, clearCommentById}) {
     return () => {
       if (parent.kids) {
         parent.kids.forEach(comment => {
-          clearCommentById(comment)
+          clearCommentById(comment);
         })
       }
     }
@@ -36,9 +36,7 @@ function CommentsList({parent, comments, clearCommentById}) {
       {commentsList.map((item) => {
         return (
           <li key={item.id}>
-            <Comment
-              comment={item}
-            />
+            <Comment comment={item}/>
           </li>
         );
       })}

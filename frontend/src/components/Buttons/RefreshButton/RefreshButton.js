@@ -10,6 +10,7 @@ export default function RefreshButton({content, onClick, isLoad}) {
       className={buttonClass}
       onClick={onClick}
       title={`Refresh ${content}`}
+      aria-label="Refresh button"
     />
   );
 }

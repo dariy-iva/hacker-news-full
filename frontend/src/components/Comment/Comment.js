@@ -1,20 +1,20 @@
 import React from "react";
 import parse from "html-react-parser";
 import "./Comment.css";
-import { convertDate } from "../../utils/convertDate";
+import {convertDate} from "../../utils/convertDate";
 import CommentsList from "../CommentsList/CommentsList";
 import {connect} from "react-redux";
 import {getCommentsList} from "../../redux/slices/commentsSlice";
 
-function Comment({ comment, getCommentsList }) {
-  const { by, time, kids, text, id } = comment;
+function Comment({comment, getCommentsList}) {
+  const {by, time, kids, text, id} = comment;
   const [childCommentsIsOpen, setChildCommentsIsOpen] = React.useState(false);
   const [loadCommentIsPending, setLoadCommentIsPending] = React.useState(false);
 
   const commentsButtonClass = `comment__caption comment__caption_content_comments comment__button link-hover 
   ${childCommentsIsOpen
-      ? "comment__button_active"
-      : ""}`;
+    ? "comment__button_active"
+    : ""}`;
 
   const commentText = text ? parse(text) : "";
 
@@ -34,9 +34,9 @@ function Comment({ comment, getCommentsList }) {
   return (
     <>
       <div className="comment__info">
-        <span className="comment__caption">{`${by || ""} ${
-          convertDate(time) || ""
-        }`}</span>
+        <span className="comment__caption">
+          {`${by || ""} ${convertDate(time) || ""}`}
+        </span>
         {kids ? (
           <button
             type="button"
@@ -45,7 +45,9 @@ function Comment({ comment, getCommentsList }) {
             onClick={handleButtonCommentsClick}
           >
             {`${kids.length} ${kids.length > 1 ? "comments" : "comment"}`}
-            {loadCommentIsPending && <span className="comment__preloader">...</span>}
+            {loadCommentIsPending &&
+              <span className="comment__preloader">...</span>
+            }
           </button>
         ) : (
           <span className="comment__caption comment__caption_content_comments">
@@ -53,7 +55,9 @@ function Comment({ comment, getCommentsList }) {
           </span>
         )}
       </div>
-      <div className="comment__text">{commentText}</div>
+      <p className="comment__text">
+        {commentText}
+      </p>
       {childCommentsIsOpen && (
         <CommentsList
           parent={comment}

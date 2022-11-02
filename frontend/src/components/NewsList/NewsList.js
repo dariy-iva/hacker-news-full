@@ -7,7 +7,9 @@ export default function NewsList({news}) {
     <ol className="news__list">
       {news.map((item) => {
         return (
-          <li key={item.id || ""} className="news__item">
+          <li
+            key={item.id || ""}
+            className="news__item">
             <Article
               article={item}
               isMainPage={true}

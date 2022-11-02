@@ -5,9 +5,10 @@ import CommentsList from "../../CommentsList/CommentsList";
 import BackButton from "../../Buttons/BackButton/BackButton";
 import RefreshButton from "../../Buttons/RefreshButton/RefreshButton";
 import {connect} from "react-redux";
+import {clearCurrentNew} from "../../../redux/slices/newsSlice";
 import {getCommentsList, clearComments} from "../../../redux/slices/commentsSlice";
 
-function ArticlePage({currentNew, getCommentsList, clearComments}) {
+function ArticlePage({currentNew, getCommentsList, clearComments, clearCurrentNew}) {
   const [commentsIsLoad, setCommentsIsLoad] = React.useState(false);
 
   function refreshCommentsList() {
@@ -27,6 +28,7 @@ function ArticlePage({currentNew, getCommentsList, clearComments}) {
     return () => {
       clearInterval(refreshInterval);
       clearComments();
+      clearCurrentNew();
     };
   }, []);
 
@@ -55,5 +57,5 @@ export default connect(
   (state) => ({
     currentNew: state.news.currentNew,
   }),
-  {getCommentsList, clearComments}
+  {getCommentsList, clearComments, clearCurrentNew}
 )(ArticlePage);

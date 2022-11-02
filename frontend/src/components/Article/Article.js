@@ -32,12 +32,21 @@ function Article({article, isMainPage, setCurrentNew}) {
         <h2 className="article__title">
           {title || ""}
           {url && (
-            <a href={url} target="blank" className="article__link">&nbsp;(follow the link&nbsp;&rarr;)</a>
+            <a
+              href={url}
+              target="blank"
+              className="article__link">
+              &nbsp;(follow the link&nbsp;&rarr;)
+            </a>
           )}
         </h2>
       )}
 
-      {!isMainPage && text && <div className="article__text">{parse(text)}</div>}
+      {!isMainPage && text && (
+        <div className="article__text">
+          {parse(text)}
+        </div>
+      )}
       <p className="article__info">
         {isMainPage && (
           <span className="article__caption">

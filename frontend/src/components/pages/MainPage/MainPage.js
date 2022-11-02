@@ -32,7 +32,10 @@ function MainPage({news, clearNews, getNewsList}) {
   return (
     <section className="news">
       <NewsList news={news}/>
-      <RefreshButton onClick={refreshNewsList} content="news" isLoad={newsIsLoad}/>
+      <RefreshButton
+        onClick={refreshNewsList}
+        content="news"
+        isLoad={newsIsLoad}/>
     </section>
   );
 }

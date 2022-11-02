@@ -33,5 +33,5 @@ export const newsSlice = createSlice({
   },
 });
 
-export const {setCurrentNew, clearNews} = newsSlice.actions;
+export const {setCurrentNew, clearCurrentNew, clearNews} = newsSlice.actions;
 export default newsSlice.reducer;
