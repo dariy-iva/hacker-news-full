@@ -18,6 +18,10 @@
   scale: 1.2;
 }
 
+.refresh-button:disabled {
+  cursor: default;
+}
+
 .refresh-button_loading {
   animation-play-state: running;
 }

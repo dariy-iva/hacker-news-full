@@ -5,19 +5,21 @@ import CommentsList from "../../CommentsList/CommentsList";
 import BackButton from "../../Buttons/BackButton/BackButton";
 import RefreshButton from "../../Buttons/RefreshButton/RefreshButton";
 import {connect} from "react-redux";
-import {setCurrentNew} from "../../../redux/slices/newsSlice";
 import {getCommentsList, clearComments} from "../../../redux/slices/commentsSlice";
 
-function ArticlePage({currentNew, comments, getCommentsList, clearComments}) {
-  const commentsIsLoad = currentNew.kids ? comments.length : true;
+function ArticlePage({currentNew, getCommentsList, clearComments}) {
+  const [commentsIsLoad, setCommentsIsLoad] = React.useState(false);
 
   function refreshCommentsList() {
+    setCommentsIsLoad(false);
     clearComments();
-    getCommentsList(currentNew.id);
+    getCommentsList(currentNew.id)
+      .then(() => setCommentsIsLoad(true));
   }
 
   React.useEffect(() => {
-    getCommentsList(currentNew.id);
+    getCommentsList(currentNew.id)
+      .then(() => setCommentsIsLoad(true));
 
     const refreshInterval = setInterval(() => {
       refreshCommentsList();
@@ -35,10 +37,10 @@ function ArticlePage({currentNew, comments, getCommentsList, clearComments}) {
         article={currentNew}
         isMainPage={false}
       />
-        <CommentsList
-          parent={currentNew}
-          onChildCommentsClick={''}
-        />
+      <CommentsList
+        parent={currentNew}
+        onChildCommentsClick={''}
+      />
       <BackButton/>
       <RefreshButton
         onClick={refreshCommentsList}
@@ -52,7 +54,6 @@ function ArticlePage({currentNew, comments, getCommentsList, clearComments}) {
 export default connect(
   (state) => ({
     currentNew: state.news.currentNew,
-    comments: state.comments.comments
   }),
-  {setCurrentNew, getCommentsList, clearComments}
+  {getCommentsList, clearComments}
 )(ArticlePage);

@@ -6,6 +6,7 @@ export default function RefreshButton({content, onClick, isLoad}) {
   return (
     <button
       type="button"
+      disabled={!isLoad}
       className={buttonClass}
       onClick={onClick}
       title={`Refresh ${content}`}

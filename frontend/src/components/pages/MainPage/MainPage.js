@@ -6,14 +6,18 @@ import {connect} from "react-redux";
 import {clearNews, getNewsList} from "../../../redux/slices/newsSlice";
 
 function MainPage({ news, clearNews, getNewsList }) {
+  const [newsIsLoad, setNewsIsLoad] = React.useState(false)
 
   function refreshNewsList() {
+    setNewsIsLoad(false);
     clearNews();
-    getNewsList();
+    getNewsList()
+      .then(() => setNewsIsLoad(true));
   }
 
   React.useEffect(() => {
-    getNewsList();
+    getNewsList()
+      .then(() => setNewsIsLoad(true));
 
     const refreshInterval = setInterval(() => {
       refreshNewsList();
@@ -28,7 +32,7 @@ function MainPage({ news, clearNews, getNewsList }) {
   return (
     <section className="news">
       <NewsList news={news} />
-      <RefreshButton onClick={refreshNewsList} content="news" isLoad={news.length}/>
+      <RefreshButton onClick={refreshNewsList} content="news" isLoad={newsIsLoad}/>
     </section>
   );
 }

@@ -39,26 +39,32 @@
   display: flex;
 }
 
-.comment__button_state-comment_close::before {
+.comment__button::before {
   content: " ";
+  height: 0;
+  width: 0;
+  margin-right: 5px;
   display: inline-block;
-  border-top: 14px solid var(--color-bcg-orange);
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   border-bottom: 0;
-  height: 0;
-  width: 0;
-  margin-right: 5px;
+  border-top: 14px solid var(--color-bcg-orange);
+  border-bottom: 0;
+  transition: transform .3s, border-top-color .3s;
 }
 
-.comment__button_state-comment_open::before {
-  content: " ";
-  display: inline-block;
-  border-bottom: 14px solid var(--color-bcg-orange);
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 0;
-  height: 0;
-  width: 0;
-  margin-right: 5px;
+.comment__button:disabled::before {
+  border-top-color: var(--gray);
+  cursor: default;
+}
+
+.comment__button_active::before {
+  transform: rotate(180deg);
+}
+
+.comment__preloader {
+  font-weight: bold;
+  display:inline-block;
+  clip-path: inset(0 3ch 0 0);
+  animation: pending 1s infinite;
 }

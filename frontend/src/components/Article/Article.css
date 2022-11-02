@@ -54,32 +54,3 @@
   padding: 0 0 0 5px;
   border-left: 1px solid var(--gray);
 }
-
-.article__button {
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
-  background: none;
-  cursor: pointer;
-  display: flex;
-}
-
-.article__button::before {
-  content: " ";
-  height: 0;
-  width: 0;
-  margin-right: 5px;
-  display: inline-block;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-}
-
-.article__button_status-comment_close::before {
-  border-top: 14px solid var(--color-bcg-orange);
-  border-bottom: 0;
-}
-
-.article__button_status-comment_open::before {
-  border-bottom: 14px solid var(--color-bcg-orange);
-  border-top: 0;
-}

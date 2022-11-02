@@ -23,9 +23,11 @@ function CommentsList({parent, comments, clearCommentById}) {
 
   React.useEffect(() => {
     return () => {
-      parent.kids.forEach(comment => {
-        clearCommentById(comment)
-      })
+      if (parent.kids) {
+        parent.kids.forEach(comment => {
+          clearCommentById(comment)
+        })
+      }
     }
   }, []);
 
