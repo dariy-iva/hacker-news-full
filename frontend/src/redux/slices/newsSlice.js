@@ -9,14 +9,21 @@ export const getNewsList = createAsyncThunk("news/getNewsList", () => {
 
 const initialState = {
   news: [],
+  currentNew: {}
 };
 
 export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
+    setCurrentNew(state, action) {
+      state.currentNew = action.payload;
+    },
     clearNews(state) {
       state.news = [];
+    },
+    clearCurrentNew(state) {
+      state.currentNew = {};
     },
   },
   extraReducers: {
@@ -26,5 +33,5 @@ export const newsSlice = createSlice({
   },
 });
 
-export const {clearNews} = newsSlice.actions;
+export const {setCurrentNew, clearNews} = newsSlice.actions;
 export default newsSlice.reducer;
