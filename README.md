@@ -1,5 +1,3 @@
-# hacker-news-full
-
 # Проект Hacker news (frontend + backend)
 
 ![Promo video](./promo.gif)
