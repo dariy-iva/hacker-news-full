@@ -17,11 +17,8 @@ async function getNewsItemsList() {
   }
 }
 
-module.exports.getNews = async (req, res, next) => {
-  try {
-    const newsItemsList = await getNewsItemsList();
-    res.status(200).send(newsItemsList);
-  } catch (err) {
-    next();
-  }
+module.exports.getNews = (req, res, next) => {
+  getNewsItemsList()
+    .then(newsList => res.status(200).send(newsList))
+    .catch(next);
 };

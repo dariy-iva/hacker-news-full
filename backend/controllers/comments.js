@@ -18,12 +18,10 @@ async function getCommentsItemsList(parentId) {
   }
 }
 
-module.exports.getComments = async (req, res, next) => {
+module.exports.getComments = (req, res, next) => {
   const { parentId } = req.params;
-  try {
-    const commentsItemsList = await getCommentsItemsList(parentId);
-    res.status(200).send(commentsItemsList);
-  } catch (err) {
-    next();
-  }
+
+  getCommentsItemsList(parentId)
+    .then(commentsList => res.status(200).send(commentsList))
+    .catch(next);
 };
