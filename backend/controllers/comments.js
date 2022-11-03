@@ -22,6 +22,6 @@ module.exports.getComments = (req, res, next) => {
   const { parentId } = req.params;
 
   getCommentsItemsList(parentId)
-    .then(commentsList => res.status(200).send(commentsList))
+    .then((commentsList) => res.status(200).send(commentsList))
     .catch(next);
 };

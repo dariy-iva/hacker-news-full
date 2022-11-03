@@ -19,6 +19,6 @@ async function getNewsItemsList() {
 
 module.exports.getNews = (req, res, next) => {
   getNewsItemsList()
-    .then(newsList => res.status(200).send(newsList))
+    .then((newsList) => res.status(200).send(newsList))
     .catch(next);
 };
