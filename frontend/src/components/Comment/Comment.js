@@ -55,9 +55,9 @@ function Comment({comment, getCommentsList}) {
           </span>
         )}
       </div>
-      <p className="comment__text">
+      <div className="comment__text">
         {commentText}
-      </p>
+      </div>
       {childCommentsIsOpen && (
         <CommentsList
           parent={comment}
