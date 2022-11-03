@@ -20,7 +20,7 @@
 }
 
 .article__link:visited {
-  color: var(--gray);
+  color: var(--light-gray);
 }
 
 .article__text {
